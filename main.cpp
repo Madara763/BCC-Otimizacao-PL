@@ -7,7 +7,7 @@ int main(){
   cin >> n >> m;
   
   int precos_venda[n];
-  int custo_componente[m];
+  double custo_componente[m];
   int limite_prod[m];
 
   double compostos[n][m]{0.0};
@@ -25,15 +25,10 @@ int main(){
   }
 
   //Calcula o custo de cada produto
-  int custo_produto[n]{0};
-  for (int lin=0; lin<n; lin++){
-    for (int col=0; col<m; col++){
-      
-    }  
-  }
-
-
-
+  double custo_produto[n]{0.0};
+  for (int lin=0; lin<n; lin++)
+    for (int col=0; col<m; col++)
+      custo_produto[lin] += compostos[lin][col] * custo_componente[col];
 
   cout<<"Entrada: \n";
   for (int i=0; i<n; i++)
@@ -50,6 +45,12 @@ int main(){
     }  
     cout<<"\n";
   } 
+
+  cout<<"Custo\n";
+  
+  for (int lin=0; lin<n; lin++){
+    cout<<"Custo produto "<<lin<<" :"<<custo_produto[lin]<<"\n"; 
+  }
 
   return 0;
 }
